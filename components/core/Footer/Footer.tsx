@@ -81,7 +81,7 @@ export default function Footer() {
                 {options.map((option) => (
                   <a
                     href={option.url}
-                    key={option.url}
+                    key={option.name}
                     target="_blank"
                     rel="noreferrer"
                     className="hover:opacity-100 opacity-70"
