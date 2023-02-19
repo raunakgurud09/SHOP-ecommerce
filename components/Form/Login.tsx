@@ -27,7 +27,7 @@ export default function SignUp() {
       <Formik
         initialValues={{ email: '', password: '' }}
         validate={(values) => {
-          const errors = {}
+          const errors: any = {}
           if (!values.email) {
             errors.email = 'Required'
           } else if (
@@ -51,9 +51,12 @@ export default function SignUp() {
           isSubmitting,
           /* and other goodies */
         }) => (
-          <form onSubmit={handleSubmit} className="flex flex-col p-4 bg-zinc-500 rounded h-fit ">
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-col p-4 bg-zinc-500 rounded h-fit "
+          >
             <label htmlFor="">
-            Email
+              Email
               <input
                 type="email"
                 name="email"
@@ -62,11 +65,10 @@ export default function SignUp() {
                 onBlur={handleBlur}
                 value={values.email}
               />
-              
             </label>
             {errors.email && touched.email && errors.email}
             <label htmlFor="">
-            Password
+              Password
               <input
                 type="password"
                 className="border flex flex-col "
@@ -75,7 +77,6 @@ export default function SignUp() {
                 onBlur={handleBlur}
                 value={values.password}
               />
-              
             </label>
             {errors.password && touched.password && errors.password}
             <button type="submit">Submit</button>
