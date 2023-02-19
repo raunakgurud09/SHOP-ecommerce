@@ -12,13 +12,13 @@ function MyApp({ Component, pageProps }) {
     <>
       <AuthProvider>
         <ThemeProvider>
-       
+          {/* <ToastProvider> */}
             <Container>
               <Navigation />
-            <Component {...pageProps} />
-            <Footer />
+              <Component {...pageProps} />
+              <Footer />
             </Container>
-         
+          {/* </ToastProvider> */}
         </ThemeProvider>
       </AuthProvider>
     </>

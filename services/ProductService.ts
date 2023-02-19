@@ -15,7 +15,7 @@ const getProduct = async (id: string): Promise<any> => {
     const url = `/products/${id}`
     const { data } = await apiClient.get(url)
 
-    return data.product
+    return data
   } catch (error) {}
 }
 

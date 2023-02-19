@@ -13,13 +13,14 @@ import ProductInputQuantity from '@/components/products/ProductInputQuantity'
 
 const CACHE_REVALIDATION = 60
 
-export default function product({ product }) {
+export default function product({ product, relatedProducts }) {
   const [size, setSize] = useState<string>('M')
   const [qty, setQty] = useState<number>(1)
   const { data: currentUser } = useUser()
+  // const { setToast } = useToast()
+  // const { isOpen, showToast } = usePopUp();
 
   const { addToCart, addingToCart } = useAddItem()
-
   const handleChangeInputQty = (value: string | number) => {
     if (Number(value) > 10) {
       // setToast('error', 'Ops up to 10 max only')
@@ -52,13 +53,12 @@ export default function product({ product }) {
   }
 
   const handleAddToCart = async () => {
-    console.log('clicked')
-    console.log(qty, size)
     try {
       if (!currentUser) {
         return Router.push(`/login?ref=${product._id}`)
       }
       await addToCart(product._id, Number(qty), String(size))
+      // showToast();
     } catch (error) {
       console.log(error)
     }
@@ -80,10 +80,10 @@ export default function product({ product }) {
           </div>
           <div className="w-full lg:w-1/2 p-4 space-y-5">
             <h3 className="text-4xl font-bold">{product.name}</h3>
-            <p className="font-light text-sm">{product.descirption}</p>
+            <p className="font-light text-sm">{product.description}</p>
             <div className="flex ">
               <p className="text-xl font-medium w-3/4 text-green-500">
-                ${product.price}
+                Rs.{product.price}
               </p>
               <div className="w-1/4 flex justify-center items-center">
                 <Wishlist />
@@ -135,7 +135,10 @@ export default function product({ product }) {
           </div>
         </div>
         <div>
-          <h3>RELATED PRODUCTS</h3>
+          <Products
+            initialProducts={relatedProducts}
+            title="RELATED PRODUCTS"
+          />
         </div>
       </div>
     </Container>
@@ -148,10 +151,12 @@ export async function getStaticProps({
   const id = params?.id as string
 
   try {
-    const product = await ProductServices.getProduct(id)
+    const { product, relatedProducts } = await ProductServices.getProduct(id)
+    // console.log(relatedProducts)
     return {
       props: {
         product,
+        relatedProducts,
         revalidate: CACHE_REVALIDATION,
       },
     }

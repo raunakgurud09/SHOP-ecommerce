@@ -20,7 +20,7 @@ export default function ProductCard({ image, name, price, id }) {
         <div className="m-2">
           <h3 className="truncate font-semibold text-lg">{name}</h3>
           <div className="flex my-2">
-            <p className="text-sm font-medium w-3/4 text-green-500">${price}</p>
+            <p className="text-sm font-medium w-3/4 text-green-500">Rs.{price}</p>
             <div className="w-1/4 flex justify-center items-center">
               <Wishlist />
             </div>

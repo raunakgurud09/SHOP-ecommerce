@@ -14,6 +14,15 @@ const addToCart = async (
   }
 }
 
+const removeFromCart = async (productId: string): Promise<any> => {
+  try {
+    const url = '/cart'
+    return await apiClient.delete(url, { data: { productId } })
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 const getCart = async () => {
   try {
     const url = '/cart'
@@ -27,6 +36,7 @@ const getCart = async () => {
 const CartServices = {
   addToCart,
   getCart,
+  removeFromCart,
 }
 
 export default CartServices

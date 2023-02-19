@@ -8,10 +8,10 @@ const Home = ({ products }) => {
   return (
     <>
       <Container>
-        {/* <Banners banners={banners} /> */}
         {/* <div className="bg-slate-200/20"></div> */}
         {/* <div>Products</div> */}
-        <div className="h-[100vh]">Catagories</div>
+        {/* <div className="h-[100vh]">Catagories</div> */}
+        <Banners  />
         <Products title="PRODUCT" initialProducts={products} />
       </Container>
     </>

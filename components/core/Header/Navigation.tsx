@@ -60,9 +60,9 @@ const Navigation = () => {
             <IoMdCart size={30} />
           </Link>
         </SmallBadge>
-        <SmallBadge>
+        {/* <SmallBadge>
           <AiFillHeart size={30} color="red" />
-        </SmallBadge>
+        </SmallBadge> */}
         {!currentUser ? (
           <LogIn />
         ) : (
@@ -83,26 +83,9 @@ const Navigation = () => {
     // </Container>
   )
 }
-// :()
-// }
-//   <Avatar  image={currentUser?.image} />
 
 export default Navigation
 
-// export async function getServerSideProps({ req }) {
-//   const session = await getSession({ req })
-//   if (!session) {
-//     return {
-//       redirect: {
-//         destination: '/login',
-//         permanent: false,
-//       },
-//     }
-//   }
-//   return {
-//     props: { session },
-//   }
-// }
 
 const getServerSideProps: GetServerSideProps = async (context) => {
   const fetcher = (url: string) => fetcherSSR(context.req, context.res, url)
