@@ -3,9 +3,7 @@ import cx from 'classnames'
 import { useLogout } from 'hooks/useAuth'
 import { useUser } from 'hooks/user/useUser'
 import { useTheme } from 'next-themes'
-import { ReactComponentElement, useEffect, useRef, useState } from 'react'
-import { GitHubLogo, LinkedinLogo } from '../../Icons'
-import ThemeSwitch from '../../ThemeSwitch'
+import {  useEffect, useRef, useState } from 'react'
 
 export default function DropDown({ children }) {
   const [isOpenDropDown, setIsOpenDropDown] = useState<boolean>(false)
@@ -58,12 +56,12 @@ export default function DropDown({ children }) {
       </div>
       <div
         className={cx(
-          'absolute p-2 rounded top-10 right-1 w-40 bg-slate-50/10 transition-opacity',
+          'absolute p-2 rounded top-10 right-1 w-40 bg-zinc-900 transition-opacity',
           isOpenDropDown ? 'visible' : 'invisible'
         )}
         aria-label="drop-menu"
       >
-        <div className="flex flex-col">
+        <div className="flex flex-col text-white">
           <h3 className="text-m">👋 {currentUser.name.toUpperCase(1)}</h3>
           <DropDownList
             icon={<EditIcon />}
@@ -78,7 +76,7 @@ export default function DropDown({ children }) {
           {currentUser.role === 'admin' && (
             <DropDownList action={handleDashboard} text="Dashboard" />
           )}
-          <DropDownList action={handleLogout} text="singOut" />
+          <DropDownList action={handleLogout} text="Signout" />
         </div>
       </div>
     </li>
@@ -87,9 +85,9 @@ export default function DropDown({ children }) {
 
 const DropDownList = ({ text, icon = '', action }: any) => {
   return (
-    <div className="p-1 my-1 rounded bg-slate-50/20 hover:bg-slate-100/5 flex flex-row">
+    <div className="p-1 my-1 rounded bg-slate-50/10 hover:bg-slate-100/5 text-white flex flex-row h-fit">
       <div className="w-1/4">
-        <div className='flex justify-center items-center'>{icon}</div>
+        <div className='flex justify-center items-center p-1 h-[100%]'>{icon}</div>
       </div>
       <div className="w-3/4" onClick={action}>
         {text}

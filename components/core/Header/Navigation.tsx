@@ -2,7 +2,6 @@ import Link from 'next/link'
 import Signature from '../../Icons/Signature'
 import SmallNav from './SmallNav'
 import ThemeSwitch from '../../ThemeSwitch'
-import { useSession, signIn, signOut, getSession } from 'next-auth/react'
 import LogIn from '../../ui/Buttons/login-btn'
 import { useUser } from 'hooks/user/useUser'
 import { useEffect } from 'react'
@@ -14,6 +13,7 @@ import Image from '@/components/ui/Image'
 import { IoMdCart } from 'react-icons/io'
 import SmallBadge from '@/components/ui/Badges/Small'
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai'
+import Container from '@/components/core/Layouts/Container'
 
 export interface navList {
   name: string
@@ -32,6 +32,7 @@ const Navigation = () => {
   }, [currentUser])
 
   return (
+    // <Container>
     <nav className=" flex  py-4 item-center select-none backdrop-blur  font-mono sticky top-0 z-50">
       <Link href="/" passHref>
         <h2 className="text-2xl font-bold">SHOP</h2>
@@ -55,7 +56,9 @@ const Navigation = () => {
       <div className="flex items-center space-x-6 text-300 md:space-x">
         <ThemeSwitch />
         <SmallBadge>
-          <IoMdCart size={30} />
+          <Link href="/cart" passHref>
+            <IoMdCart size={30} />
+          </Link>
         </SmallBadge>
         <SmallBadge>
           <AiFillHeart size={30} color="red" />
@@ -77,6 +80,7 @@ const Navigation = () => {
         <SmallNav />
       </div>
     </nav>
+    // </Container>
   )
 }
 // :()

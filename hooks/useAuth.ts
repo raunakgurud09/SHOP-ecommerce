@@ -4,7 +4,6 @@ import { autoLogin, autoLogout } from '@/utils/auth'
 import { mutate } from 'swr'
 import { useRouter } from 'next/router'
 
-
 export const useLogin = () => {
   return useCallback(async (email: string, password: string) => {
     const { token } = await AuthServices.login(email, password)
@@ -23,7 +22,7 @@ export const useLogout = () => {
 export const useRegister = () => {
   const router = useRouter()
   return useCallback(async (name: string, email: string, password: string) => {
-    const res = await AuthServices.register(name,email,password)
+    const res = await AuthServices.register(name, email, password)
     router.push('/login')
     mutate('/api/me')
   }, [])

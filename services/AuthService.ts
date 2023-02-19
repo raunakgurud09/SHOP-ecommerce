@@ -4,8 +4,8 @@ export const getMe = async (): Promise<any> => {
   try {
     const { data } = await apiClient.get('/user/profile')
     const userData = {
-      token: data.data.token,
-      user: data.data.user,
+      token: data.message,
+      user: data.user,
     }
     console.log(userData)
     return userData
@@ -20,7 +20,7 @@ export const login = async (email: string, password: string): Promise<any> => {
     const { data } = await apiClient.post(url, { email, password })
     const userData = {
       token: data.token,
-      user: data.user,
+      message: data.message,
     }
     return userData
   } catch (error) {
@@ -28,7 +28,10 @@ export const login = async (email: string, password: string): Promise<any> => {
   }
 }
 
-export const updateProfile = async (userId: string, userFields: any): Promise<any> => {
+export const updateProfile = async (
+  userId: string,
+  userFields: any
+): Promise<any> => {
   try {
     const url = `/user/upload-avatar`
     console.log({ files: userFields })
@@ -39,7 +42,11 @@ export const updateProfile = async (userId: string, userFields: any): Promise<an
   }
 }
 
-export const register = async (name: string, email: string, password: string): Promise<any> => {
+export const register = async (
+  name: string,
+  email: string,
+  password: string
+): Promise<any> => {
   try {
     const url = '/auth/register'
     const { data } = await apiClient.post(url, { name, email, password })
