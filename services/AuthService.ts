@@ -36,7 +36,7 @@ export const updateProfile = async (
     const url = `/user/upload-avatar`
     console.log({ files: userFields })
     const { data } = await apiClient.post(url, { files: userFields })
-    return data.data
+    return data.result
   } catch (error) {
     console.log(error)
   }

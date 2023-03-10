@@ -19,6 +19,7 @@
       "@/styles/*": ["styles/*"],
       "@/data/*": ["data/*"],
       "@/components/*": ["components/*"],
+      "@/constants/*": ["constants*"],
       "@/public/*": ["public/*"],
       "@/utils/*": ["utils/*"],
       "@/src/*": ["src/*"],

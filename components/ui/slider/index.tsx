@@ -1,0 +1,44 @@
+import { Slide } from 'react-slideshow-image'
+// import img1 from './img/img1.jpg'
+// import img2 from './img/img2.jpg'
+import img1 from '@/public/defaultAvatar.png'
+import img2 from '@/public/defaultAvatar.png'
+import img3 from '@/public/defaultAvatar.png'
+// import "./Slider.css"
+// const img1 = ""
+// const img2 = ""
+// const img3 = ""
+
+const proprieties = {
+  duration: 5000,
+  transitionDuration: 500,
+  infinite: true,
+  indicators: true,
+  arrows: true,
+}
+
+const Slideshow = () => {
+  return (
+    <div className="w-[650px] m-auto ">
+      <Slide {...proprieties}>
+        <div className="each-slide">
+          <div>
+            <img src={img1} alt="img1" />
+          </div>
+        </div>
+        <div className="each-slide">
+          <div>
+            <img src={img2} alt="img2" />
+          </div>
+        </div>
+        <div className="each-slide">
+          <div>
+            <img src={img3} alt="img3" />
+          </div>
+        </div>
+      </Slide>
+    </div>
+  )
+}
+
+export default Slideshow
