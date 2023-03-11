@@ -27,3 +27,12 @@ export const useRegister = () => {
     mutate('/api/me')
   }, [])
 }
+
+export const useGoogleLogin = () => {
+  return useCallback(async (idToken: string) => {
+    console.log("1")
+    const { token } = await AuthServices.verifyGoogleToken(idToken)
+    autoLogin(token)
+    mutate('/api/me')
+  }, [])
+}

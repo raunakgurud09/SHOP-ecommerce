@@ -56,11 +56,24 @@ export const register = async (
     throw new error()
   }
 }
+
+export const verifyGoogleToken = async (idToken: string): Promise<any> => {
+  try {
+    const url = '/auth/google'
+    const { data } = await apiClient.post(url, { idToken })
+    console.log(data)
+    return
+  } catch (error) {
+    throw new error()
+  }
+}
+
 const AuthService = {
   login,
   register,
   getMe,
   updateProfile,
+  verifyGoogleToken,
 }
 
 export default AuthService
