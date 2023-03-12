@@ -2,7 +2,13 @@ import Index from '@/components/dashboard/Index'
 import FilledButton from '@/components/ui/Buttons/Filled'
 import React, { useEffect, useState } from 'react'
 
-const options = ['General', 'Banner', 'Add Product', 'Products']
+const options = [
+  "General",
+  'Banner',
+  'Add Product',
+  'Products',
+  'orders',
+]
 
 function dashboard() {
   const [option, setOption] = useState(0)
@@ -24,7 +30,7 @@ function dashboard() {
   }, [option])
 
   return (
-    <div className="h-screen bg-slate-500/10 p-4 rounded">
+    <div className="h-auto bg-slate-500/10 p-4 rounded">
       <div className="w-full bg-slate-700 p-8 rounded flex justify-between items-center flex-row">
         <div className="text-xl font-bold">website Name</div>
         <div>
@@ -50,8 +56,7 @@ function dashboard() {
             </div>
           ))}
         </div>
-        <div className="w-3/4 h-96 bg-slate-700/20">
-          <div className="">upload zone</div>
+        <div className="w-3/4 h-auto bg-slate-700/20">
           <Index value={option} />
         </div>
       </div>

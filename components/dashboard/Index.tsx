@@ -4,7 +4,7 @@ import AllProducts from './AllProducts'
 import Banner from './Banner'
 import General from './General'
 
-function Index({ value }) {
+function Index({ value = 0}) {
   return (
     <div>
       {(() => {
