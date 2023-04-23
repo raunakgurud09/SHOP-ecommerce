@@ -8,7 +8,7 @@ function AllProducts() {
   const [deleteId,setDeleteId] =useState()
 
   useEffect(() => {
-    fetch(`${API_URL}/api/v1/products`)
+    fetch(`${API_URL}/products`)
       .then((res) => res.json())
       .then((data) => setProducts(data.products))
       .catch((e) => console.log(e))
