@@ -7,10 +7,10 @@ export function AvatarImage({ image, w = '16', h = '16' }: any) {
     <>
       <NextImage
         src={image}
-        className={cx('object-cover rounded-full', `h-[${h}px] w-[${w}px]`)}
+        className={cx('object-cover rounded-full', `h-[16px] w-[16px]`)}
         alt="profile"
-        width={`${w}`}
-        height={`${h}`}
+        width={w}
+        height={h}
       />
     </>
   )
