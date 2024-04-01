@@ -9,7 +9,7 @@ const Banners = ({ banner }) => {
         <Image
           src={banner.imageURL}
           alt={banner.name}
-          width={720}
+          width={2240}
           height={400}
           className="h-full object-contain fill"
         />
