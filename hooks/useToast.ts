@@ -17,7 +17,7 @@ export const usePopUp = (): PopUp => {
     return () => clearTimeout(timeout);
   }, [isOpen]);
 
-  function toggle() {s
+  function toggle() {
     setIsOpen(!isOpen);
   }
 
